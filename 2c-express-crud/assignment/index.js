@@ -22,14 +22,23 @@ app.listen(PORT, () => console.log(`Server is running on port: ${PORT}`));
 // A new ingredient is a new array item within each ingredientType object.
 // First I must check if the new ingredient the user wants to POST already exists in the ingredientType object via a guard statement
 app.post('/allAvailableIngredients/:newIngredient', (req, res) => {
+    // In the isIngredientAlreadyHere guard statement, I'm querying each array of each sandwichIngredientTypes key:
     const isIngredientAlreadyHere = sandwichIngredientTypes[req.params.ingredientType]
-        .some((newIngredient) => newIngredient.name === req.params.newIngredient)
+        .some((newIngredient) => ingredientType.name === req.params.newIngredient)
     if (isIngredientAlreadyHere) {
         res.status(500).json({
-            message: 'Failure'
-        })
+            message: 'Failure',
+            payload: 'An ingredient with that name already exists'
+        });
+        
+        return;
     }
 
+    sandwichIngredientTypes[req.params.ingredientType].push(req.params.newIngredient)
+    res.status(200).json({
+        message: 'Success!',
+        payload: sandwichIngredientTypes
+    })
     
 })
 
