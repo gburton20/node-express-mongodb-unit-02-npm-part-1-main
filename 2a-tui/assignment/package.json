@@ -1,0 +1,20 @@
+{
+  "name": "emagi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watch-all",
+    "test-search": "jest search",
+    "test-search-watch": "jest --watch-all search",
+    "test-translate": "jest translate",
+    "test-translate-watch": "jest --watch-all translate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}

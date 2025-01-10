@@ -1,0 +1,18 @@
+{
+  "name": "2a-tui",
+  "version": "1.0.0",
+  "description": "### Introduction",
+  "main": "interface.js",
+  "scripts": {
+    "test": "jest logic",
+    "say-hi": "echo hello",
+    "pika": "pokesay pika",
+    "watch": "jest --watch-all logic" 
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}
