@@ -20,11 +20,11 @@ app.listen(PORT, () => console.log(`Server is running on port: ${PORT}`));
 
 //'C'reate, POST, a new ingredient
 // A new ingredient is a new array item within each ingredientType object.
+// The hint is to use dynamic params to identify ONE resource matching the description of the proposed new ingredient
 // First I must check if the new ingredient the user wants to POST already exists in the ingredientType object via a guard statement
 app.post('/allAvailableIngredients/:newIngredient', (req, res) => {
     // In the isIngredientAlreadyHere guard statement, I'm querying each array of each sandwichIngredientTypes key:
     const isIngredientAlreadyHere = sandwichIngredientTypes[req.params.ingredientType]
-        .some((newIngredient) => ingredientType.name === req.params.newIngredient)
     if (isIngredientAlreadyHere) {
         res.status(500).json({
             message: 'Failure',
